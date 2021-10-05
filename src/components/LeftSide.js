@@ -1,83 +1,79 @@
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const LeftSide = (props) => {
-    return (
-        <Container>
-            <ArtCard>
-                <UserInfo>
-                    <CardBoard />
-                    <a>
-                        <Photo />
-                        <Link>Welcome, there!</Link>
-                    </a>
-                    <a>
-                        <AddPhotoText>Add a photo</AddPhotoText>
-                    </a>
-                </UserInfo>
-                <Widget>
-                    <a>
-                        <div>
-                            <span>Connections</span>
-                            <span>Grow your network</span>
-                        </div>   
-                        <img src="/images/widget-icon.svg" alt="" />     
-                    </a>
-                </Widget>
-                <Item>
-                    <span>
-                        <img src="/images/item-icon.svg" alt="" />
-                         My Items  
-                    </span>      
-                </Item>
-            </ArtCard>
-            <CommunityCard>
-                <a>
-                    <span>
-                        Groups
-                    </span>
-                </a>
-                <a>
-                    <span>
-                        Events
-                        <img src="/images/plus-icon.svg" alt="" />
-                    </span>
-                </a>
-                <a>
-                    <span>
-                        Follow Hashtags
-                    </span>
-                </a>
-                <a>
-                    <span>
-                        Discover More
-                    </span>
-                </a>
-            </CommunityCard>
-        </Container>
-    )
-}
+  return (
+    <Container>
+      <ArtCard>
+        <UserInfo>
+          <CardBoard />
+          <a>
+            <Photo />
+            <Link>
+              Welcome, {props.user ? props.user.displayName : "there!"}
+            </Link>
+          </a>
+          <a>
+            <AddPhotoText>Add a photo</AddPhotoText>
+          </a>
+        </UserInfo>
+        <Widget>
+          <a>
+            <div>
+              <span>Connections</span>
+              <span>Grow your network</span>
+            </div>
+            <img src="/images/widget-icon.svg" alt="" />
+          </a>
+        </Widget>
+        <Item>
+          <span>
+            <img src="/images/item-icon.svg" alt="" />
+            My Items
+          </span>
+        </Item>
+      </ArtCard>
+      <CommunityCard>
+        <a>
+          <span>Groups</span>
+        </a>
+        <a>
+          <span>
+            Events
+            <img src="/images/plus-icon.svg" alt="" />
+          </span>
+        </a>
+        <a>
+          <span>Follow Hashtags</span>
+        </a>
+        <a>
+          <span>Discover More</span>
+        </a>
+      </CommunityCard>
+    </Container>
+  );
+};
 
 const Container = styled.div`
-    grid-area: leftside;
+  grid-area: leftside;
 `;
 
 const ArtCard = styled.div`
-    text-align: center;
-    overflow: hidden;
-    margin-bottom: 8px;
-    background-color: #fff;
-    border-radius: 5px;
-    transition: box-shadow 83ms;
-    position: relative;
-    border: none;
-    box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
-
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: box-shadow 83ms;
+  position: relative;
+  border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
 `;
 const UserInfo = styled.div`
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 12px 12px 16px;
-    word-wrap: break-word;
-    word-break: break-word;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 12px 12px 16px;
+  word-wrap: break-word;
+  word-break: break-word;
 `;
 
 const CardBoard = styled.div`
@@ -85,7 +81,7 @@ const CardBoard = styled.div`
   background-position: center;
   background-size: 462px;
   height: 54px;
-  margin: -12px -12px 0; 
+  margin: -12px -12px 0;
 `;
 
 const Photo = styled.div`
@@ -201,6 +197,14 @@ const CommunityCard = styled(ArtCard)`
   }
 `;
 
+const mapStatetoProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
 
+// const mapDispatchtoProps = (dispatch) => ({
+//   signOut: () => dispatch(signOutAPI()),
+// });
 
-export default LeftSide;
+export default connect(mapStatetoProps)(LeftSide);

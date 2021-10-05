@@ -1,83 +1,87 @@
 import styled from "styled-components";
+import PostModal from "./PostModal";
 
 const Main = (props) => {
   return (
     <Container>
-      <ShareBox>
-        <div>
-          <img src="/images/user.svg" alt="" />
-          <button>Start a Post </button>
-        </div>
-        <div>
-          <button>
-            <img src="/images/main-photo.svg" alt="" />
-            <span>Photo</span>
-          </button>
-          <button>
-            <img src="/images/video.svg" alt="" />
-            <span>Video</span>
-          </button>
-          <button>
-            <img src="/images/event.svg" alt="" />
-            <span>Event</span>
-          </button>
-          <button>
-            <img src="/images/main-article.svg" alt="" />
-            <span>Write article</span>
-          </button>
-        </div>
-      </ShareBox>
-      <Article>
-        <SharedActor>
-          <a>
+      <div>
+        <ShareBox>
+          <div>
             <img src="/images/user.svg" alt="" />
-            <div>
-              <span>Title</span>
-              <span>Info</span>
-              <span>Date</span>
-            </div>
-          </a>
-          <button>
-            <img src="/images/ellipsis.svg" alt="" />
-          </button>
-        </SharedActor>
-        <Description>Description</Description>
-        <SharedImg>
-          <a>
-            <img src="/images/post-img.jpg" alt="" />
-          </a>
-        </SharedImg>
-        <SocialCounts>
-          <li>
+            <button>Start a Post </button>
+          </div>
+          <div>
             <button>
-              <img src="/images/like.svg" alt="" />
-              <img src="/images/clap.svg" alt="" />
-              <span>80</span>
+              <img src="/images/main-photo.svg" alt="" />
+              <span>Photo</span>
             </button>
-          </li>
-          <li>
-            <a>2 comments</a>
-          </li>
-        </SocialCounts>
-        <SocialActions>
-          <button>
-            <img src="/images/like-icon.svg" alt="" />
-            <span>Like</span>
-          </button>
-          <button>
-            <img src="/images/comment.svg" alt="" />
-            <span>Comments</span>
-          </button>
-          <button>
-            <img src="/images/share.svg" alt="" />
-            <span>Share</span>
-          </button>
-          <button>
-            <img src="/images/send.svg" alt="" />
-            <span>Send</span>
-          </button>
-        </SocialActions>
-      </Article>
+            <button>
+              <img src="/images/video.svg" alt="" />
+              <span>Video</span>
+            </button>
+            <button>
+              <img src="/images/event.svg" alt="" />
+              <span>Event</span>
+            </button>
+            <button>
+              <img src="/images/main-article.svg" alt="" />
+              <span>Write article</span>
+            </button>
+          </div>
+        </ShareBox>
+        <Article>
+          <SharedActor>
+            <a>
+              <img src="/images/user.svg" alt="" />
+              <div>
+                <span>Title</span>
+                <span>Info</span>
+                <span>Date</span>
+              </div>
+            </a>
+            <button>
+              <img src="/images/ellipsis.svg" alt="" />
+            </button>
+          </SharedActor>
+          <Description>Description</Description>
+          <SharedImg>
+            <a>
+              <img src="/images/post-img.jpg" alt="" />
+            </a>
+          </SharedImg>
+          <SocialCounts>
+            <li>
+              <button>
+                <img src="/images/like.svg" alt="" />
+                <img src="/images/clap.svg" alt="" />
+                <span>80</span>
+              </button>
+            </li>
+            <li>
+              <a>2 comments</a>
+            </li>
+          </SocialCounts>
+          <SocialActions>
+            <button>
+              <img src="/images/like-icon.svg" alt="" />
+              <span>Like</span>
+            </button>
+            <button>
+              <img src="/images/comment.svg" alt="" />
+              <span>Comments</span>
+            </button>
+            <button>
+              <img src="/images/share.svg" alt="" />
+              <span>Share</span>
+            </button>
+            <button>
+              <img src="/images/send.svg" alt="" />
+              <span>Send</span>
+            </button>
+          </SocialActions>
+        </Article>
+      </div>
+      <PostModal />
     </Container>
   );
 };

@@ -1,34 +1,55 @@
+import { useState } from "react";
 import styled from "styled-components";
 import PostModal from "./PostModal";
 
 const Main = (props) => {
+  const [showModal, setShowModal] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+        break;
+    }
+  };
   return (
     <Container>
+      <ShareBox>
+        <div>
+          <img src="/images/user.svg" alt="" />
+          <button onClick={handleClick}>Start a Post </button>
+        </div>
+        <div>
+          <button>
+            <img src="/images/main-photo.svg" alt="" />
+            <span>Photo</span>
+          </button>
+          <button>
+            <img src="/images/video.svg" alt="" />
+            <span>Video</span>
+          </button>
+          <button>
+            <img src="/images/event.svg" alt="" />
+            <span>Event</span>
+          </button>
+          <button>
+            <img src="/images/main-article.svg" alt="" />
+            <span>Write article</span>
+          </button>
+        </div>
+      </ShareBox>
       <div>
-        <ShareBox>
-          <div>
-            <img src="/images/user.svg" alt="" />
-            <button>Start a Post </button>
-          </div>
-          <div>
-            <button>
-              <img src="/images/main-photo.svg" alt="" />
-              <span>Photo</span>
-            </button>
-            <button>
-              <img src="/images/video.svg" alt="" />
-              <span>Video</span>
-            </button>
-            <button>
-              <img src="/images/event.svg" alt="" />
-              <span>Event</span>
-            </button>
-            <button>
-              <img src="/images/main-article.svg" alt="" />
-              <span>Write article</span>
-            </button>
-          </div>
-        </ShareBox>
         <Article>
           <SharedActor>
             <a>
@@ -81,7 +102,7 @@ const Main = (props) => {
           </SocialActions>
         </Article>
       </div>
-      <PostModal />
+      <PostModal showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 };

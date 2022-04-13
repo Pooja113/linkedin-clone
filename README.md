@@ -4,3 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## This project contains LinkedIn Clone
 
+- React Js 
+- Redux
+- Firebase
+
